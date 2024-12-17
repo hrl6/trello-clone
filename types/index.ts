@@ -3,8 +3,8 @@ export type List = {
   title: string
   order: number
   items: Item[]
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | string
+  updatedAt: Date | string
 }
 
 export type Item = {
@@ -12,6 +12,6 @@ export type Item = {
   content: string
   order: number
   listId: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | string
+  updatedAt: Date | string
 }
