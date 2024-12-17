@@ -1,9 +1,11 @@
 import { Board } from '@/components/board/Board'
+import { Navbar } from '@/components/nav/Navbar'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-blue-50">
+    <div className="min-h-screen bg-blue-50">
+      <Navbar />
       <Board />
-    </main>
+    </div>
   )
 }

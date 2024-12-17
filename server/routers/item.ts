@@ -42,5 +42,40 @@ export const itemRouter = router({
       return ctx.prisma.item.delete({
         where: { id: input.id },
       })
-    })
+    }),
+
+    move: publicProcedure
+      .input(z.object({
+        id: z.string(),
+        listId: z.string(),
+        order: z.number(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        return ctx.prisma.item.update({
+          where: { id: input.id },
+          data: {
+            listId: input.listId,
+            order: input.order,
+          },
+        })
+      }),
+  
+    reorder: publicProcedure
+      .input(z.object({
+        items: z.array(z.object({
+          id: z.string(),
+          order: z.number(),
+        })),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const updates = input.items.map(({ id, order }) =>
+          ctx.prisma.item.update({
+            where: { id },
+            data: { order },
+          })
+        )
+  
+        await ctx.prisma.$transaction(updates)
+        return true
+      }),
 })

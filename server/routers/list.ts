@@ -60,5 +60,24 @@ export const listRouter = router({
       return ctx.prisma.list.delete({
         where: { id: input.id },
       })
-    })
+    }),
+  
+  reorder: publicProcedure
+    .input(z.object({
+      lists: z.array(z.object({
+        id: z.string(),
+        order: z.number(),
+      })),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const updates = input.lists.map(({ id, order }) =>
+        ctx.prisma.list.update({
+          where: { id },
+          data: { order },
+        })
+      )
+
+      await ctx.prisma.$transaction(updates)
+      return true
+    }),
 })
