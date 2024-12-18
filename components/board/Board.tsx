@@ -12,7 +12,7 @@ export function Board() {
   const [board, setBoard] = useAtom(boardAtom)
   const utils = trpc.useContext()
   
-  const { data: lists, isLoading } = trpc.list.getAll.useQuery(undefined, {
+  const { data: isLoading } = trpc.list.getAll.useQuery(undefined, {
     onSuccess: (data) => {
       setBoard({ lists: data })
     },
