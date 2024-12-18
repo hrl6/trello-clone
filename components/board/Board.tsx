@@ -6,7 +6,7 @@ import { CreateList } from './CreateList'
 import { DragDropContext, Droppable, DropResult } from '@hello-pangea/dnd'
 import { useAtom } from 'jotai'
 import { boardAtom } from '@/stores/boardStore'
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
 
 export function Board() {
   const [board, setBoard] = useAtom(boardAtom)
@@ -17,6 +17,12 @@ export function Board() {
       setBoard({ lists: data })
     },
   })
+
+  useEffect(() => {
+    if (lists) {
+      setBoard({ lists })
+    }
+  }, [lists, setBoard])
 
   const reorderLists = trpc.list.reorder.useMutation({
     onSuccess: () => {
