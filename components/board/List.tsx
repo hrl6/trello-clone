@@ -40,9 +40,8 @@ export function List({ list, index }: ListProps) {
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}
-          className="w-80"
         >
-          <div className="bg-gray-100 rounded-lg p-2">
+          <div className="w-72 bg-gray-100 rounded-lg p-2">
             <div {...provided.dragHandleProps}>
               <ListHeader id={list.id} title={list.title} />
             </div>

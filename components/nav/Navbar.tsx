@@ -10,7 +10,7 @@ export function Navbar() {
   return (
     <nav className="h-14 bg-white border-b px-4 flex items-center gap-4">
       <div className="flex items-center gap-4 flex-1">
-        <span className="text-2xl font-bold text-blue-600">Trello Ciplak</span>
+        <span className="text-2xl font-bold text-blue-600 line leading-6">Trello Ciplak</span>
         
         <div className="flex items-center gap-2">
           <NavItem label="Workspaces" />

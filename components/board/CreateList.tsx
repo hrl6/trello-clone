@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { trpc } from '@/utils/trpc'
 import { Button } from '../ui/Button'
+import { Plus } from 'lucide-react';
 
 export function CreateList() {
   const [isCreating, setIsCreating] = useState(false)
@@ -28,15 +29,15 @@ export function CreateList() {
     return (
       <Button
         onClick={() => setIsCreating(true)}
-        className="w-80 h-12"
+        className="min-w-64 h-12 bg-slate-400/80 hover:bg-slate-500 flex justify-center items-center gap-2 pr-4"
       >
-        Add new list
+        <Plus size={20}/>Add new list
       </Button>
     )
   }
 
   return (
-    <div className="w-80 bg-gray-100 rounded-lg p-2">
+    <div className="min-w-80 max-h-48 border- bg-gray-100 rounded-lg p-2">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

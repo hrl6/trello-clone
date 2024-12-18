@@ -141,7 +141,7 @@ export function Board() {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="h-full p-4 overflow-x-auto"
+            className="h-[93vh] p-10 overflow-x-auto"
           >
             <div className="flex gap-4">
               {board.lists.map((list, index) => (

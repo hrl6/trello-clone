@@ -5,6 +5,8 @@ import { trpc } from '@/utils/trpc'
 import { Button } from '../ui/Button'
 import { Draggable } from '@hello-pangea/dnd'
 import type { Item } from '@/types'
+import { Trash2, PencilLine } from 'lucide-react';
+
 
 type ListItemProps = {
   item: Item
@@ -29,11 +31,25 @@ export function ListItem({ item, index }: ListItemProps) {
     },
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (content.trim()) {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   if (content.trim()) {
+  //     updateItem.mutate({ id: item.id, content: content.trim() })
+  //   }
+  // }
+
+  const handleUpdate = () => {
+    if (content.trim() && content.trim() !== item.content) {
       updateItem.mutate({ id: item.id, content: content.trim() })
+    } else {
+      setIsEditing(false)
+      setContent(item.content)
     }
+  }
+
+  const handleCancel = () => {
+    setIsEditing(false)
+    setContent(item.content)
   }
 
   return (
@@ -43,21 +59,36 @@ export function ListItem({ item, index }: ListItemProps) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="group flex items-center gap-2 p-2 bg-white rounded shadow"
+          className="group flex items-start gap-2 p-2 bg-white rounded-[8px] shadow"
         >
           {isEditing ? (
-            <form onSubmit={handleSubmit} className="flex-1">
-              <input
-                type="text"
+            <div className="flex-1">
+              <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full border rounded px-2 py-1"
+                className="w-full border rounded px-2 py-1 overflow-hidden"
                 autoFocus
-                onBlur={() => setIsEditing(false)}
+                // onBlur={() => setIsEditing(false)}
               />
-            </form>
+              <div className="flex gap-2 pt-2">
+                <Button
+                  onClick={handleUpdate}
+                  className="flex-1 gap-1 flex items-center justify-center rounded-lg bg-slate-400/80 hover:bg-slate-500 pr-4"
+                  disabled={!content.trim() || content.trim() === item.content}
+                >
+                  <PencilLine size={14} />Save
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={handleCancel}
+                  className="flex-1 rounded-lg"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
           ) : (
-            <>
+            <div className='flex items-start w-full gap-2'>
               <span
                 className="flex-1 cursor-pointer"
                 onClick={() => setIsEditing(true)}
@@ -69,9 +100,9 @@ export function ListItem({ item, index }: ListItemProps) {
                 onClick={() => deleteItem.mutate({ id: item.id })}
                 className="opacity-0 group-hover:opacity-100"
               >
-                Delete
+                <Trash2 size={14} />
               </Button>
-            </>
+            </div>
           )}
         </div>
       )}
