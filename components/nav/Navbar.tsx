@@ -20,7 +20,7 @@ export function Navbar() {
 
         <span className="text-2xl font-bold text-blue-600 line leading-6 truncate">Trello Ciplak</span>
         
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2 text-slate-900">
           <NavItem label="Workspaces" />
           <NavItem label="Recent" />
           <NavItem label="Starred" />
@@ -74,7 +74,7 @@ export function Navbar() {
         ease-in-out
         ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
       `}>
-        <div className="p-4 space-y-4">
+        <div className="p-4 space-y-4 text-slate-900">
           <NavMobileItem label="Workspaces" />
           <NavMobileItem label="Recent" />
           <NavMobileItem label="Starred" />
