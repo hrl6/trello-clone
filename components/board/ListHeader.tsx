@@ -65,7 +65,7 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1"
+            className="w-full text-slate-900 border rounded px-2 py-1 focus:outline-none focus:ring-1"
             autoFocus
             onBlur={handleBlur}
           />

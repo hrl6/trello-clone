@@ -73,7 +73,7 @@ export function List({ list, index }: ListProps) {
                 value={newItemContent}
                 onChange={(e) => setNewItemContent(e.target.value)}
                 placeholder="Add new item..."
-                className="w-full border rounded-lg px-2 py-1 mb-2"
+                className="w-full text-slate-900 border rounded-lg px-2 py-1 mb-2"
               />
               <Button type="submit" className="w-full py-[6px] rounded-lg">
                 Add Item

@@ -12,7 +12,7 @@ export function Navbar() {
     <nav className="h-14 bg-white border-b px-4 flex items-center gap-4">
       <div className="flex items-center gap-4 flex-1">
         <button 
-          className="lg:hidden"
+          className="lg:hidden text-slate-600"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -34,7 +34,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-4">
         <button>
-          <Search size={18} className="visible md:hidden hover:scale-110"/>
+          <Search size={18} className="visible text-slate-600 md:hidden hover:scale-110"/>
         </button>
         
         <div className="relative hidden md:flex">

@@ -44,7 +44,7 @@ export function CreateList() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter list title..."
-          className="w-full border rounded px-2 py-1 mb-2"
+          className="w-full text-slate-900 border rounded px-2 py-1 mb-2"
           autoFocus
         />
         <div className="flex gap-2">

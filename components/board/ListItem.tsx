@@ -90,7 +90,7 @@ export function ListItem({ item, index }: ListItemProps) {
           ) : (
             <div className='flex items-start w-full gap-2'>
               <span
-                className="flex-1 cursor-pointer"
+                className="flex-1 cursor-pointer text-slate-900"
                 onClick={() => setIsEditing(true)}
               >
                 {content}
