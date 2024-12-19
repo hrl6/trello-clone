@@ -52,7 +52,7 @@ export function CreateList() {
           <Button
             type="button"
             variant="ghost"
-            className="flex-1"
+            className="flex-1 text-slate-900"
             onClick={() => setIsCreating(false)}
           >
             Cancel

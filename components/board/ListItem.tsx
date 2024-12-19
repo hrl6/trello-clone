@@ -81,7 +81,7 @@ export function ListItem({ item, index }: ListItemProps) {
                 <Button
                   variant="ghost"
                   onClick={handleCancel}
-                  className="flex-1 rounded-lg"
+                  className="flex-1 rounded-lg text-slate-900"
                 >
                   Cancel
                 </Button>
