@@ -37,7 +37,7 @@ export function CreateList() {
   }
 
   return (
-    <div className="min-w-80 max-h-48 border- bg-gray-100 rounded-lg p-2">
+    <div className="min-w-80 max-h-48 border- bg-gray-100 border-[0.5px] border-gray-300 rounded-lg p-2">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -48,10 +48,11 @@ export function CreateList() {
           autoFocus
         />
         <div className="flex gap-2">
-          <Button type="submit">Create List</Button>
+          <Button type="submit" className='flex-1'>Create List</Button>
           <Button
             type="button"
             variant="ghost"
+            className="flex-1"
             onClick={() => setIsCreating(false)}
           >
             Cancel

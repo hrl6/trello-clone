@@ -58,19 +58,19 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
   }
 
   return (
-    <div className="flex justify-between items-center p-2">
+    <div className="flex justify-between items-center py-2">
       {isEditing ? (
         <form onSubmit={handleSubmit} className="flex flex-1">
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded px-2 py-1"
+            className="w-full border rounded px-2 py-1 focus:outline-none focus:ring-1"
             autoFocus
             onBlur={handleBlur}
           />
           <Button
-            className="ml-2"
+            className="ml-2 px-[10px]"
             onClick={handleButtonClick}
           >
             <PencilLine size={14} />
@@ -78,7 +78,7 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
         </form>
       ) : (
         <h3
-          className="text-lg font-semibold cursor-pointer hover:text-blue-900 hover:scale-105"
+          className="text-lg font-semibold cursor-pointer hover:text-blue-600"
           onClick={() => setIsEditing(true)}
         >
           {title}
@@ -87,9 +87,9 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
       <Button
         variant="danger"
         onClick={() => deleteList.mutate({ id })}
-        className="ml-2"
+        className="ml-2 bg-transparent hover:bg-transparent text-slate-600 group"
       >
-        <Trash2 size={14} />
+        <Trash2 size={18} className='group-hover:text-slate-800'/>
       </Button>
     </div>
   )

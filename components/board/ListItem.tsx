@@ -59,14 +59,14 @@ export function ListItem({ item, index }: ListItemProps) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="group flex items-start gap-2 p-2 bg-white rounded-[8px] shadow"
+          className="group flex items-start gap-2 p-2 bg-white rounded-[8px] shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.9)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.9)] transition-shadow"
         >
           {isEditing ? (
             <div className="flex-1">
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full border rounded px-2 py-1 overflow-hidden"
+                className="w-full border rounded px-2 py-1 overflow-hidden focus:outline-none focus:ring-1"
                 autoFocus
                 // onBlur={() => setIsEditing(false)}
               />
