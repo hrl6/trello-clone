@@ -7,7 +7,6 @@ import { DragDropContext, Droppable, DropResult } from '@hello-pangea/dnd'
 import { useAtom } from 'jotai'
 import { boardAtom } from '@/stores/boardStore'
 import { useEffect } from 'react'
-import { X } from 'lucide-react'
 
 export function Board() {
   const [board, setBoard] = useAtom(boardAtom)
@@ -139,7 +138,7 @@ export function Board() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-full pt-10">
+      <div className="flex justify-center items-center h-full pt-10 mt-14">
         <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full"></div>
       </div>
     )
@@ -158,6 +157,7 @@ export function Board() {
               <h2 className="text-[1.4rem] font-bold text-blue-800 pb-4">
                 👋 Welcome to Trello-like Board!
               </h2>
+
               <div className="flex gap-4 pr-10">
                 {board.lists.map((list, index) => (
                   <List key={list.id} list={list} index={index} />
