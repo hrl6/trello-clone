@@ -1,19 +1,13 @@
 import type { Metadata } from 'next'
-import { Geologica } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import './globals.css'
 import { TrpcProvider } from '@/utils/trpc-provider'
 
-const inter = Geologica({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Trello Clone',
   description: 'Ermm.. An advance todo list? ㋡',
-  icons: {
-    icon: '/tc.ico', // Basic favicon
-    // You can also specify different sizes
-    apple: '/tc.ico', // For Apple devices
-    shortcut: '/tc.ico', // Shortcut icon
-  },
 }
 
 export default function RootLayout({
@@ -23,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={nunito.className}>
         <TrpcProvider>{children}</TrpcProvider>
       </body>
     </html>

@@ -7,6 +7,7 @@ import { DragDropContext, Droppable, DropResult } from '@hello-pangea/dnd'
 import { useAtom } from 'jotai'
 import { boardAtom } from '@/stores/boardStore'
 import { useEffect } from 'react'
+import { X } from 'lucide-react'
 
 export function Board() {
   const [board, setBoard] = useAtom(boardAtom)
@@ -145,24 +146,31 @@ export function Board() {
   }
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <Droppable droppableId="board" type="list" direction="horizontal">
-        {(provided) => (
-          <div
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-            className="h-[93vh] p-10 overflow-x-auto"
-          >
-            <div className="flex gap-4 pr-10">
-              {board.lists.map((list, index) => (
-                <List key={list.id} list={list} index={index} />
-              ))}
-              {provided.placeholder}
-              <CreateList />
+    <div className='h-screen overflow-x-scroll'>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="board" type="list" direction="horizontal">
+          {(provided) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className="p-10 mt-12"
+            >
+              <h2 className="text-[1.4rem] font-bold text-blue-800 pb-4">
+                👋 Welcome to Trello-like Board!
+              </h2>
+              <div className="flex gap-4 pr-10">
+                {board.lists.map((list, index) => (
+                  <List key={list.id} list={list} index={index} />
+                ))}
+                {provided.placeholder}
+                <div className='pr-10'>
+                  <CreateList />
+                </div>
+              </div>
             </div>
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </div>
   )
 }

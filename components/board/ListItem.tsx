@@ -66,7 +66,7 @@ export function ListItem({ item, index }: ListItemProps) {
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full text-slate-900 border rounded px-2 py-1 overflow-hidden focus:outline-none focus:ring-1"
+                className="w-full text-slate-900 leading-[1.4rem] border rounded px-2 py-1 overflow-hidden focus:outline-none focus:ring-1"
                 autoFocus
                 // onBlur={() => setIsEditing(false)}
               />
@@ -90,7 +90,7 @@ export function ListItem({ item, index }: ListItemProps) {
           ) : (
             <div className='flex items-start w-full gap-2'>
               <span
-                className="flex-1 cursor-pointer text-slate-900"
+                className="flex-1 cursor-pointer text-slate-900 leading-[1.4rem]"
                 onClick={() => setIsEditing(true)}
               >
                 {content}

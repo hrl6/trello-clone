@@ -9,7 +9,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="h-14 bg-white border-b px-4 flex items-center gap-4">
+    <nav className="h-14 bg-white border-b px-4 flex items-center gap-4 absolute top-0 left-0 right-0 z-50">
       <div className="flex items-center gap-4 flex-1">
         <button 
           className="lg:hidden text-slate-600"
@@ -18,9 +18,9 @@ export function Navbar() {
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        <span className="text-2xl font-bold text-blue-600 line leading-6 truncate">Trello Ciplak</span>
+        <span className="text-2xl font-extrabold text-blue-600 line leading-6 truncate">Trello Ciplak</span>
         
-        <div className="hidden lg:flex items-center gap-2 text-slate-900">
+        <div className="hidden lg:flex items-center gap-2 font-semibold text-slate-600">
           <NavItem label="Workspaces" />
           <NavItem label="Recent" />
           <NavItem label="Starred" />

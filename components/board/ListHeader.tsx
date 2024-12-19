@@ -78,7 +78,7 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
         </form>
       ) : (
         <h3
-          className="text-lg text-slate-900 font-semibold cursor-pointer hover:text-blue-600 transition-colors duration-200 ease-in"
+          className="text-lg text-slate-900 pl-2 font-bold tracking-[0.02rem] cursor-pointer hover:text-blue-600 transition-colors duration-200 ease-in"
           onClick={() => setIsEditing(true)}
         >
           {title}
