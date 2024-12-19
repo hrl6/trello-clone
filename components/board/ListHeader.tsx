@@ -78,7 +78,7 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
         </form>
       ) : (
         <h3
-          className="text-lg font-semibold cursor-pointer hover:text-blue-600"
+          className="text-lg text-slate-900 font-semibold cursor-pointer hover:text-blue-600 transition-colors duration-200 ease-in"
           onClick={() => setIsEditing(true)}
         >
           {title}
@@ -87,9 +87,9 @@ export function ListHeader({ id, title: initialTitle }: ListHeaderProps) {
       <Button
         variant="danger"
         onClick={() => deleteList.mutate({ id })}
-        className="ml-2 bg-transparent hover:bg-transparent text-slate-600 group"
+        className="ml-2 bg-transparent hover:bg-transparent group"
       >
-        <Trash2 size={18} className='group-hover:text-slate-800'/>
+        <Trash2 size={18} className="text-slate-500 group-hover:text-slate-700 transition-colors duration-200 ease-in"/>
       </Button>
     </div>
   )

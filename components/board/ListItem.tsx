@@ -66,7 +66,7 @@ export function ListItem({ item, index }: ListItemProps) {
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full border rounded px-2 py-1 overflow-hidden focus:outline-none focus:ring-1"
+                className="w-full text-slate-900 border rounded px-2 py-1 overflow-hidden focus:outline-none focus:ring-1"
                 autoFocus
                 // onBlur={() => setIsEditing(false)}
               />
